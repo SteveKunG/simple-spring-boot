@@ -1,6 +1,7 @@
 package com.stevekung.example.springboot.student;
 
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,9 @@ public class StudentController
     @GetMapping
     public List<Student> getStudents()
     {
-        return this.service.getStudents();
+        var list = this.service.getStudents();
+        list.sort(Comparator.comparing(Student::getId));
+        return list;
     }
 
     @PostMapping

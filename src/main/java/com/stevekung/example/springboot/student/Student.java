@@ -2,6 +2,7 @@ package com.stevekung.example.springboot.student;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.Objects;
 
 import org.springframework.core.style.ToStringCreator;
 
@@ -45,6 +46,26 @@ public class Student
                 .append("dateOfBirth", this.dateOfBirth.toString())
                 .append("age", this.age)
                 .toString();
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj)
+        {
+            return true;
+        }
+        if (!(obj instanceof Student student))
+        {
+            return false;
+        }
+        return Objects.equals(this.id, student.id) && Objects.equals(this.name, student.name) && Objects.equals(this.email, student.email) && Objects.equals(this.dateOfBirth, student.dateOfBirth) && Objects.equals(this.age, student.age);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(this.id, this.name, this.email, this.dateOfBirth, this.age);
     }
 
     public Long getId()

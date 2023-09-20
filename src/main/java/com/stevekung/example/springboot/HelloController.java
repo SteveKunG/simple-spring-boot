@@ -1,12 +1,8 @@
 package com.stevekung.example.springboot;
 
-import java.time.LocalDate;
-import java.util.List;
-
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.stevekung.example.springboot.student.Student;
 
 @RestController
 public class HelloController
@@ -23,13 +19,9 @@ public class HelloController
         return "AAAAAA";
     }
 
-    @GetMapping("/list_student")
-    public List<Student> listStudent()
+    @GetMapping("/hello")
+    public String greeting(@RequestParam(value = "name", defaultValue = "World") String name)
     {
-        //@formatter:off
-        return List.of(
-                new Student("AAA", "AAA@gmail.com", LocalDate.of(1999, 2, 2)),
-                new Student("BBB", "BBB@gmail.com", LocalDate.of(2006, 8, 31)));
-        //@formatter:on
+        return "Hello, %s!".formatted(name);
     }
 }

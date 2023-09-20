@@ -15,8 +15,8 @@ public class StudentConfig
     {
         return args ->
         {
-            var aaa = new Student("AAA", "AAA@gmail.com", LocalDate.of(1999, 2, 2));
-            var bbb = new Student("BBB", "BBB@gmail.com", LocalDate.of(2006, 8, 31));
+            var aaa = new Student("AAAAAA", "AAA@gmail.com", LocalDate.of(1999, 2, 2));
+            var bbb = new Student("BBBBBB", "BBB@gmail.com", LocalDate.of(2006, 8, 31));
             repository.saveAll(List.of(aaa, bbb));
         };
     }
