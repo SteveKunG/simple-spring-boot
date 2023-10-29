@@ -1,0 +1,1 @@
+--insert into student values(1, 'XYZWY', 'XYZ@gmail.com', DATE '1999-02-02');
